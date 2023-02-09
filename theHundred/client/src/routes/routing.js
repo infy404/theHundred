@@ -1,0 +1,46 @@
+import { Routes, Route } from "react-router-dom"
+import Login from "../containers/auth/login"
+import Register from "../containers/auth/register"
+
+const Routing = () => {
+
+    <Routes> 
+
+    </Routes>
+
+}
+
+//Default Route for users just scrolling about.
+
+const DefaultRoutes = () => {
+    return (
+        <Routes>
+            <Route path="/" element={{}} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={ <Register /> }
+            
+        </Routes>
+    )
+
+}
+
+// User route for registered and logged in users.
+const UserRoutes = () => {
+    return (
+        <Routes>
+            <Route path="/" element={{}} />
+        </Routes>
+    )
+}
+
+
+// Admin route just for the admin.
+const AdminRoutes = () => {
+    return (
+        <Routes>
+            <Route path="/" element={{}} />
+        </Routes>
+    )
+}
+
+export default Routing;
