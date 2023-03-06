@@ -4,26 +4,29 @@
  * Users can edit / cancel their booking if they so wish.
  * Online booking only supports booking for an individual for a specific time or a day only.
  * Further booking to be done physically only.
- * 
- * 
+ *
+ *
  */
 
 import DynamicForm from "../../components/forms/dynamicForm";
 
-const Booking = () =>
-{
-    const bookingFields = [
-        
-      ];
+const Booking = () => {
+  const bookingFields = [
+    { label: "bookingDate", type: "date", placeholder: "Select your Date" },
+    {label: ""}
+  ];
 
-      <DynamicForm 
+  return (
+    <>
+      <DynamicForm
         formFields={bookingFields}
-        buttonName={"Book Now"} 
+        buttonName={"Book Now"}
+        apiEndPoint={"/booking"}
+        onSucessNavigation={"/"}
+        initialValues={{}}
       />
+    </>
+  );
+};
 
-
-}
-
-export default Booking
-
-
+export default Booking;

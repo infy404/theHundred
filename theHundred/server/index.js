@@ -9,6 +9,7 @@ const port = 5000;
 const pwdHash = require("./utils/pwdHash");
 const getLoginFields = require("./utils/getLoginField")
 
+ 
 connectDb();
 
 app.use(cors());
@@ -27,13 +28,22 @@ app.post("/register", async (req, res) => {
       if (data) {
         res.json({
           message: "Registration Successful!",
+          status: 200,
         });
       } else {
-        res.send("Registration Failed");
+        res.json({
+          message: "Registration Failed",
+          status: 400,
+          description: "Registration cannot be completed at the moment!"
+        });
       }
     });
   } catch (err) {
-    console.log("Error", err);
+      res.json({
+        message: err.message,
+        status: 400,
+        description: "Registration cannot be completed at the moment!"
+      })
   }
 });
 
@@ -46,26 +56,38 @@ app.post('/login', async (req, res)=> {
   if(findUser){
     console.log(req.body.password, findUser.password)
     const check = await pwdHash.loginCheck(req.body.password, findUser.password)
+    console.log(check)
     if(check){
       res.json({
         message: "Login Success!!",
+        status: 200,
         id: findUser._id
       })
     } else {
-      res.status(401).json({
-        message: "Wrong Password"
+      res.json({
+        message: "Invalid Credentials",
+        status: 401,
+        description: "Input credentials do not match"
       })
     }
     
   }
   else{
-    res.send({message: "Invalid Credentials"}).status(401)
+    res.json({
+      message: "Invalid Credentials",
+      status: 401,
+      description: "Input credentials do not match"
+      })
   }
-
-
-
+  
 
 } )
+
+
+app.post("/booking", async (req, res) => {
+  
+
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
