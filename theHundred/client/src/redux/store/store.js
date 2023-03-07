@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import userSlice from '../reducers/userSlice'
 import { persistReducer, persistStore } from 'redux-persist';
 import logger from 'redux-logger'
+import notifySlice from "../reducers/notifySlice";
 
 const persistConfig = {
   key: 'root',
@@ -12,6 +13,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
   user: userSlice,
+  notify: notifySlice
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer)

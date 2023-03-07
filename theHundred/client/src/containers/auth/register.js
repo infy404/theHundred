@@ -1,6 +1,6 @@
 import DynamicForm from "../../components/forms/dynamicForm";
 
-const Register = () => {
+const Register = (props) => {
   const userDetailFields = [
     { label: "firstName", type: "text", placeholder: "First Name" },
     { label: "lastName", type: "text", placeholder: "Last Name" },
@@ -21,6 +21,8 @@ const Register = () => {
         buttonName={"Register"}
         apiEndPoint={"/register"}
         onSuccessNavigation={"/"}
+        initialValues = {{}}
+        onClose = {props.onClose}
       />
     </>
   );

@@ -11,6 +11,7 @@ const Login = () => {
           buttonName={"Login"} 
           apiEndPoint={"/login"}
           onSuccessNavigation={"/dashboard"}
+          initialValues = {{}}
           
         />;
 };

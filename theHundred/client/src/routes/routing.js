@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "../containers/auth/login";
 import Register from "../containers/auth/register";
 import LandingPage from "../containers/landingPage";
-
+import UserDashboard from "../containers/user/userDashboard";
 const Routing = () => {
   return <DefaultRoutes />;
 };
@@ -15,6 +15,7 @@ const DefaultRoutes = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/userDashboard" element={<UserDashboard />} />
     </Routes>
   );
 };

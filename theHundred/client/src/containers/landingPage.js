@@ -38,11 +38,13 @@ const LandingPage = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [loadForm, setLoadForm] = useState()
+  const [formName, setFormName] = useState("")
 
 
   const check = (params) => {
     onOpen()
-    params ==="Login" ? setLoadForm(<Login />) : setLoadForm(<Register />) 
+    params ==="Login" ? setLoadForm(<Login />) : setLoadForm(<Register onClose={onClose}/>)
+    // onClose() 
   }
 
   /**
@@ -74,15 +76,6 @@ const LandingPage = () => {
             <ModalBody>
               {loadForm}
             </ModalBody>
-            <ModalFooter alignContent={"center"}>
-              <Button
-                colorScheme="blue"
-                mr={3}
-                onClick={onClose}
-              >
-                Close
-              </Button>
-            </ModalFooter>
           </ModalContent>
         </Modal>
       </Box>
