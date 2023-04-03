@@ -17,70 +17,12 @@ import Register from "./auth/register";
 import { useState } from "react";
 
 const LandingPage = () => {
-  // const [loginModalView, setLoginModalView] = useState(false);
-  // const [registerModalView, setRegisterModalView] = useState(false);
-
-  // const openLoginModal = () => {
-  //   setLoginModalView(true);
-  // };
-
-  // const closeLoginModal = () => {
-  //   setLoginModalView(false);
-  // };
-
-  // const openRegisterModal = () => {
-  //   setRegisterModalView(true);
-  // };
-
-  // const closeRegisterModal = () => {
-  //   setRegisterModalView(false);
-  // };
-
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [loadForm, setLoadForm] = useState()
-  const [formName, setFormName] = useState("")
-
-
-  const check = (params) => {
-    onOpen()
-    params ==="Login" ? setLoadForm(<Login />) : setLoadForm(<Register onClose={onClose}/>)
-    // onClose() 
-  }
-
-  /**
-   * 
-   * *Just putting in two buttons now for the supposed "NavBar"
-   * !To be replaced with actual NavBar and links instead of buttons.  
-   */
-  return (
-    <div>
-      
-       <Button variant={"solid"} onClick={() => check("Login")}>
-          Login
-        </Button>
-        <Button variant={"solid"} onClick={() => check("Register")}>
-          Register
-        </Button>
-        
-        
-      <Box>
-        <Modal
-          isOpen={isOpen}
-          onClose={onClose}
-          size={"md"}
-        >
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>  </ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              {loadForm}
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-      </Box>
-    </div>
-  );
+  return(
+    <Text fontSize={"3xl"} justifyContent={"center"} alignContent={"center"}>
+      Welcome to the 100
+    </Text>
+  )
+  
 };
 
 export default LandingPage;

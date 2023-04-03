@@ -1,6 +1,6 @@
 import DynamicForm from "../../components/forms/dynamicForm";
 
-const Login = () => {
+const Login = (props) => {
   const loginFields = [
     { label: "loginKey", type: "text", placeholder: "Phone Number or Email" },
     { label: "password", type: "password", placeholder: " Password" },
@@ -10,8 +10,9 @@ const Login = () => {
           formFields={loginFields} 
           buttonName={"Login"} 
           apiEndPoint={"/login"}
-          onSuccessNavigation={"/dashboard"}
+          onSuccessNavigation={"/userDashboard"}
           initialValues = {{}}
+          onClose= {props.onClose}
           
         />;
 };

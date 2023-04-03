@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+
+input[type="file"]::-webkit-file-upload-button {
+  background-color: #6c25be;
+  color: white;
+  font-weight: bold;
+  padding: 0.5em;
+  border: thin solid grey;
+  border-radius: 3px;
+  transition: .45s
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: white;
+  color: black;
+}
+
+

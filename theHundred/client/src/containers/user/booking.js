@@ -10,10 +10,9 @@
 
 import DynamicForm from "../../components/forms/dynamicForm";
 
-const Booking = () => {
+const Booking = (props) => {
   const bookingFields = [
     { label: "bookingDate", type: "date", placeholder: "Select your Date" },
-    {label: ""}
   ];
 
   return (
@@ -22,8 +21,10 @@ const Booking = () => {
         formFields={bookingFields}
         buttonName={"Book Now"}
         apiEndPoint={"/booking"}
-        onSucessNavigation={"/"}
-        initialValues={{}}
+        onSucessNavigation={"/userDashboard"}
+        initialValues={props?.initialValues || {}}
+        onClose={props.onClose}
+        fetchData= {props.fetchData}
       />
     </>
   );
