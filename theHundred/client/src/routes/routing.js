@@ -1,21 +1,35 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "../containers/auth/login";
-import Register from "../containers/auth/register";
+import AdminDashboard from "../containers/admin/adminDashboard";
+import CreateTestimonial from "../containers/admin/createTestimonial";
 import LandingPage from "../containers/landingPage";
+import TestFile from "../components/testimonial/testimonialCard";
+import Testimonial from "../containers/testimonial";
 import UserDashboard from "../containers/user/userDashboard";
+
+import { useSelector } from "react-redux";
+import AboutUsPage from "../containers/aboutUsPage";
 const Routing = () => {
-  return <DefaultRoutes />;
+  const {isLoggedIn, userRole} = useSelector((state) => state.user)
+  console.log(isLoggedIn, userRole)
+  if(!isLoggedIn){
+    return <DefaultRoutes />;
+  }
+  else if(isLoggedIn && userRole ==='user'){
+    return <UserRoutes />
+  }
+  else if(isLoggedIn && userRole === 'admin'){
+    return <AdminRoutes />
+  }
+  
 };
 
-//Default Route for users just scrolling about.
 
 const DefaultRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/userDashboard" element={<UserDashboard />} />
+      <Route path="/aboutUs" element={<AboutUsPage />} />
+      <Route path="/testimonial" element={<Testimonial />} />
     </Routes>
   );
 };
@@ -24,7 +38,7 @@ const DefaultRoutes = () => {
 const UserRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={{}} />
+      <Route path="/" element={<UserDashboard />} />
     </Routes>
   );
 };
@@ -33,7 +47,7 @@ const UserRoutes = () => {
 const AdminRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={{}} />
+      <Route path="/" element={<AdminDashboard />} />
     </Routes>
   );
 };

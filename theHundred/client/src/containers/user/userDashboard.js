@@ -8,29 +8,34 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
+  Heading,
+  Text,
+  SimpleGrid,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Highlight,
   useDisclosure,
+  Divider,
+  Stack,
+  Container,
+  transition,
 } from "@chakra-ui/react";
 import Booking from "./booking";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { DateTime } from "luxon";
+import { useDispatch } from "react-redux";
+import { assignToast } from "../../redux/reducers/notifySlice";
+import { onEditing, afterEditing } from "../../redux/reducers/bookingSlice";
+import SideNavBar from "../../components/navBar/sideNavBar";
 
 const UserDashboard = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  return (
-    <>
-      <Button onClick={onOpen}> Book a Time </Button>
-      <Box>
-        <Modal isOpen={isOpen} onClose={onClose} size={"md"}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader> </ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-                <Booking />
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-      </Box>
-    </>
-  );
+ return (
+  <SideNavBar />
+ )
 };
 
 export default UserDashboard;

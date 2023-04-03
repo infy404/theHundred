@@ -9,10 +9,9 @@ const NotifyToast = () => {
 
     const {status, message, description, display} = useSelector(state => state.notify)
     const statusCheck = (status) => {
-      return status === 200 ? 'success' : 'warning' 
+      return status === 200 ? 'success' :  status === 401 ? 'warning' : 'error' 
     }
     const toast = useToast()
-
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -21,7 +20,7 @@ const NotifyToast = () => {
           dispatch(clearToast())
         }, 3000);
       }
-    }, [display])
+    })
 
 
 
