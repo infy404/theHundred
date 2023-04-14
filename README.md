@@ -2,7 +2,7 @@
 # The 100 Co-Working Space 
 
 A simple booking application for a co-working space (The 100). Project is currently at its 
-infancy, and supports minimal features. The major focus for this stage of the project was to fulfill a basic CRUD requirement. This philosophy behind this project was solely based from the perspective of "*getting a working app ready*", meaning I would like to apologize for the abysmal UI/UX. **Also, to make testing easier, currently there is no front end validation on any of the forms**
+infancy, and supports minimal features. The major focus for this stage of the project was to fulfill a basic CRUD requirement. **Also, to make testing easier, currently there is no front end validation on any of the forms**
 ## Features
 #### **Majority of the forms here make use of the Modal pop up system**
 
